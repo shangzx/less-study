@@ -1,0 +1,43 @@
+// 变量
+// 以 @ 开头 定义变量，当作为属性值使用时 直接 键入 @名称；当在其他位置使用时，使用 @{ 名称 }
+// 1. 属性值变量
+@size: 50px;
+@bodyBgColor: lightblue;
+
+// 2. 选择器变量
+@add : add;
+@minus: minus;
+
+// 3. 地址变量
+@img: '../img';
+
+// 4. 变量计算
+// 计算前后格式必须相同，如颜色必须均为 16进制，才能有效计算
+@color : #222;
+@radius: 10%;
+
+
+.icon {
+    // 样式圈定的范围为一个作用域，内部的变量取值优先是由当前作用域中声明的值
+    // 具体流程同作用域链
+    @size: 40px;
+
+    display: inline-block;
+    width: @size + 30;
+    height: @size;
+    border: 3px solid @color / 2;
+    border-radius: @radius * 2;
+    margin: 0 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    background-color: @color * 3;
+}
+
+.icon-@{add} {
+    background-image: url('@{img}/add.png');
+}
+
+.icon-@{minus} {
+    background-image: url('@{img}/minus.png');
+}

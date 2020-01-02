@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>less 学习</title>
+    <link rel="stylesheet/less" type="text/css" href="less/index.less" />
+    <script src="lib/less.min.js"></script>
+</head>
+
+<body>
+    <p>注意：要想使用 less，网页必须在访问服务器得到的情况下才能生效。</p>
+
+    <h2>变量</h2>
+    <div class="icon-list">
+        <div class="icon icon-add"></div>
+        <div class="icon icon-minus"></div>
+    </div>
+
+    <h2>嵌套</h2>
+    <div id="hover" class="radius">
+        <span id="content">Less is more!</span>
+    </div>
+
+    <h2>混入</h2>
+    <ul class="tab">
+        <li>UI</li>
+        <li>HTML + CSS + Javascript</li>
+        <li>Nodejs</li>
+    </ul>
+    <div class="text-overflow" style="width: 100px;">Less is more!Less is more!Less is more!</div>
+
+    <h2>条件判断</h2>
+    <ul id="when">
+        <li>小一点</li>
+        <li>大一点</li>
+    </ul>
+
+    <h2>循环</h2>
+    <ul id="each">
+        <li class="col-1"></li>
+        <li class="col-2"></li>
+        <li class="col-3"></li>
+        <li class="col-4"></li>
+    </ul>
+
+    <h2>继承</h2>
+    <div id="father"></div>
+    <div id="son"></div>
+</body>
+
+</html>

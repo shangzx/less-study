@@ -1,0 +1,52 @@
+// 混入 Mixins
+// 混入的整体使用类似于函数
+// mixins 适用于对常见样式的封装，例如：元素居中、渐变、文字溢出（...代替）等常见样式。
+
+// 1. 无参数混入
+// 在定义无参数混入时，选择器名称后面 () 可加可不加
+// 如果加上 ()，就不能再当成一个普通的类名使用了，只能作为一个混入的函数
+// .text-overflow 效果等同于 .text-overflow()
+.text-overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// 2. 带参数混入
+.tab-item (@bgColor, @width : 100px) {
+    width: @width;
+    background-color: @bgColor;
+}
+
+// 3. 参数不定与获取全部参数
+// 参数数量不定时可以使用 ... 代替，类似于 ES6 扩展符
+.margin(...) {
+    // 使用 @arguments 获取全部参数
+    margin: @arguments;
+}
+
+.tab {
+    .margin(10px, 20px, 30px, 0);
+    width: 350px;
+    height: 80px;
+    background-color: peru;
+
+    li {
+        float: left;
+        line-height: 80px;
+        height: 80px;
+        text-align: center;
+        color: #fff;
+        // 使用不带参数混入时，最后的 () 可加可不加，推荐加上。
+        .text-overflow();
+    }
+
+    li:nth-of-type(1),
+    li:nth-of-type(3) {
+        .tab-item(red);
+    }
+
+    li:nth-of-type(2) {
+        .tab-item(blue, 150px);
+    }
+}

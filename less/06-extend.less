@@ -1,0 +1,14 @@
+// 继承
+// extend 是 less 的一个 伪类。它可继承后面 () 所匹配声明中的全部样式。
+// 和混入的效果也比较类似
+#father {
+    width: 200px;
+    height: 100px;
+    background-color: teal;
+    border: 2px solid red;
+}
+
+#son {
+    &:extend(#father);
+    width: 300px;
+}

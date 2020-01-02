@@ -1,0 +1,26 @@
+// 嵌套
+#hover {
+    width: 150px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    color: #fff;
+    background-color: palegreen;
+
+    // 作用域内可以按照标签的嵌套方式依次书写即可
+    // 实现后代选择器的写法
+    #content {
+        display: none;
+    }
+
+    // & 符号表示当前作用域中选择器
+    // 等效于 [#hover:hover]
+    &:hover {
+        background-color: orange;
+
+        // 等效于 [#hover:hover #content]
+        & #content {
+            display: inline;
+        }
+    }
+}

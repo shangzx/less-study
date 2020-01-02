@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    // 对导入的文件都处于一个全局作用域中，并且对于声明的变量值是存在变量提升的
+    // @bodyBgColor 是在 01-variable.less 文件中声明的
+    background-color: @bodyBgColor;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+// 使用 @import 进行导入，注意，在路径的最后结尾处，一定记得加 ; 结尾，否则会报错。
+// 拆分为多个 less 文件方便实现各组件样式的单独控制
+@import '01-variable.less';
+@import '02-nesting.less';
+@import '03-mixins.less';
+@import '04-when.less';
+@import '05-each.less';
+@import '06-extend.less';

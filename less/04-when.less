@@ -1,0 +1,42 @@
+// 条件判断
+// 在 less 中使用 when 代替 if...else...
+// 在使用时也多搭配 混入 进行使用
+.boxSize(@w) when(@w < 150px) {
+    width: 100px;
+    height: 50px;
+    background-color: orchid;
+}
+
+.boxSize(@w) when(@w >=150px) {
+    width: 200px;
+    height: 100px;
+    background-color: royalblue;
+}
+
+// 也可以搭配逻辑运算符和比较运算符可以实现多条件限制
+// 其中比较运算符相等比较为 = 单等号（注意不是双等号，也不是三等号）
+// 另外，除去关键字 true 以外的值都被视为 false
+
+// and 运算符，相当于 与运算 &&，必须条件全部符合才会执行
+.border(@width, @color, @style) when (@width > 5px) and (@color =#999) {
+    border: @width @style @color;
+}
+
+// , 逗号分隔符，相当于 或运算 ||，只要有一个符合条件就会执行
+.font(@size) when (@size <=30px),
+(@size > 50px) {
+    font-size: @size;
+}
+
+#when {
+    li:nth-of-type(1) {
+        .boxSize(70px);
+        .border(8px, #888, solid);
+        .font(40px); // 不再范围内，按默认值 16px 显示
+    }
+
+    li:nth-of-type(2) {
+        .boxSize(170px);
+        .font(60px);
+    }
+}
